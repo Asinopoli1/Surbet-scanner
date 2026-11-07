@@ -1,7 +1,223 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Surebet Scanner · Demo</title><style>:root{font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#eaf0fa;background:#0b1220}*{box-sizing:border-box}body{margin:0}main{max-width:850px;margin:auto;padding:20px 15px 60px}h1{font-size:27px;margin:8px 0}p{color:#a9b8d0;line-height:1.45}.tag{background:#273b5b;color:#d5e7ff;padding:5px 9px;border-radius:20px;font-size:12px}.panel{background:#152238;border:1px solid #2c405e;border-radius:16px;padding:16px;margin:16px 0}label{display:block;font-size:13px;color:#b7c8de;margin:12px 0 5px}input,select,button{width:100%;padding:12px;border-radius:10px;border:1px solid #40516a;background:#0c1829;color:white;font-size:16px}button{background:#3677ed;border:0;font-weight:700;margin-top:12px;cursor:pointer}.secondary{background:#273a56}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{background:#0c1829;border-radius:10px;padding:12px}.stat strong{display:block;font-size:22px;margin-top:5px}.green{color:#65e6a5}.red{color:#ff8e91}.muted{font-size:12px;color:#a9b8d0}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:10px 5px;border-bottom:1px solid #30435d}th{color:#9eb4d0;font-weight:500}.notice{background:#332c1c;border:1px solid #78623c;border-radius:10px;padding:10px;color:#ffe2a2;font-size:13px}.hide{display:none}.scroll{overflow-x:auto}small{color:#9eb4d0}</style></head><body><main><span class="tag">PROTOTIPO GRATUITO · DATI DIMOSTRATIVI</span><h1>🔎 Surebet Scanner</h1><p>Dashboard mobile per confrontare quote e calcolare le puntate. Nessun collegamento live ai bookmaker.</p><div class="notice">⚠️ Le quote precaricate sono inventate per testare i calcoli. Nessuna opportunità qui è verificata o giocabile.</div><section class="panel"><h2>Scanner demo</h2><label>Mercato</label><select id="market"><option value="all">Tutti</option><option value="1X2">1X2</option><option value="GG/NG">Goal / No Goal</option><option value="OU2.5">Over / Under 2.5</option></select><label>Budget totale (€)</label><input id="budget" type="number" value="200" min="1" step="1"><button id="scan">Analizza quote demo</button><div id="results"></div></section><section class="panel"><h2>Calcolatore manuale</h2><p>Inserisci quote viste da te, sullo stesso evento e sullo stesso mercato. Le quote devono riferirsi a esiti mutuamente esclusivi ed esaustivi, con regole di liquidazione equivalenti.</p><label>Tipo di mercato</label><select id="manualMarket"><option value="2">Goal / No Goal</option><option value="ou">Over / Under 2.5</option><option value="3">1X2</option></select><div id="manualFields"></div><button id="calculate">Calcola surebet</button><div id="manualResult"></div></section><section class="panel"><h2>Come si calcola</h2><p>Somma delle probabilità implicite: <b>Σ(1 / quota migliore)</b>. Se il risultato è inferiore a 1, esiste un arbitraggio teorico prima di commissioni, arrotondamenti, limiti, cambi di quota e differenze di regolamento.</p><p class="muted">Non effettua scommesse, non accede ai conti e non recupera quote automaticamente. Per un feed live servirà un'API autorizzata e un backend che custodisca la chiave.</p></section></main><script>
-const demo=[{event:'Squadra A – Squadra B',market:'1X2',outcomes:[['1','Bookmaker A',2.85],['X','Bookmaker B',3.75],['2','Bookmaker C',2.75]]},{event:'Squadra C – Squadra D',market:'GG/NG',outcomes:[['Goal','Bookmaker A',2.20],['No Goal','Bookmaker B',2.10]]},{event:'Squadra E – Squadra F',market:'OU2.5',outcomes:[['Over 2.5','Bookmaker A',1.86],['Under 2.5','Bookmaker B',1.90]]}];
-const euro=n=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR'}).format(n);const fmt=n=>(n*100).toFixed(2)+'%';const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function evaluate(outcomes,budget){if(!Number.isFinite(budget)||budget<=0||outcomes.some(o=>!Number.isFinite(o[2])||o[2]<=1))return null;const sum=outcomes.reduce((a,o)=>a+1/o[2],0);const payout=budget/sum;return {sum,payout,profit:payout-budget,stakes:outcomes.map(o=>budget*(1/o[2])/sum)}}
-function renderCard(item,budget){const r=evaluate(item.outcomes,budget);if(!r)return '<p class="red">Controlla le quote e il budget.</p>';return `<div class="panel"><b>${escapeHtml(item.event)}</b> <span class="tag">${escapeHtml(item.market)}</span><div class="grid" style="margin-top:12px"><div class="stat"><small>Somma implicita</small><strong>${fmt(r.sum)}</strong></div><div class="stat"><small>Profitto teorico</small><strong class="${r.profit>0?'green':'red'}">${euro(r.profit)}</strong></div></div><p class="${r.profit>0?'green':'red'}">${r.profit>0?'Arbitraggio teorico':'Nessun arbitraggio'}</p><div class="scroll"><table><thead><tr><th>Esito</th><th>Bookmaker</th><th>Quota</th><th>Puntata</th></tr></thead><tbody>${item.outcomes.map((o,i)=>`<tr><td>${escapeHtml(o[0])}</td><td>${escapeHtml(o[1])}</td><td>${o[2].toFixed(2)}</td><td>${euro(r.stakes[i])}</td></tr>`).join('')}</tbody></table></div><p class="muted">Ritorno teorico: ${euro(r.payout)} · Margine: ${fmt(1-r.sum)} · Prima di costi e arrotondamenti</p></div>`}
-function budget(){return Number(document.getElementById('budget').value)}function scan(){const m=document.getElementById('market').value;document.getElementById('results').innerHTML=demo.filter(x=>m==='all'||x.market===m).map(x=>renderCard(x,budget())).join('')}function fields(){const m=document.getElementById('manualMarket').value;const labels=m==='3'?['1','X','2']:m==='ou'?['Over 2.5','Under 2.5']:['Goal','No Goal'];document.getElementById('manualFields').innerHTML=labels.map((l,i)=>`<div class="grid"><div><label>${l} · Bookmaker</label><input id="bk${i}" value="Bookmaker ${i+1}"></div><div><label>${l} · Quota decimale</label><input id="od${i}" type="number" min="1.01" step="0.01" placeholder="es. 2.10"></div></div>`).join('');document.getElementById('manualResult').innerHTML=''}function calc(){const m=document.getElementById('manualMarket').value;const labels=m==='3'?['1','X','2']:m==='ou'?['Over 2.5','Under 2.5']:['Goal','No Goal'];const outcomes=labels.map((l,i)=>[l,document.getElementById('bk'+i).value,Number(document.getElementById('od'+i).value)]);const b=budget();document.getElementById('manualResult').innerHTML=outcomes.some(o=>!o[2]||o[2]<=1)||!b||b<=0?'<p class="red">Inserisci quote superiori a 1 e un budget positivo.</p>':renderCard({event:'Confronto manuale',market:m==='3'?'1X2':m==='ou'?'OU2.5':'GG/NG',outcomes},b)}document.getElementById('scan').addEventListener('click',scan);document.getElementById('calculate').addEventListener('click',calc);document.getElementById('manualMarket').addEventListener('change',fields);fields();scan();
-</script></body></html>
+
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surebet Scanner Live</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1220;color:#eaf0fa;font-family:-apple-system,Arial,sans-serif}
+main{max-width:850px;margin:auto;padding:20px 14px 60px}
+h1{font-size:27px}
+h2{font-size:19px}
+p,small{color:#a9b8d0;line-height:1.5}
+.panel{background:#152238;border:1px solid #30435d;border-radius:16px;padding:16px;margin:15px 0}
+input,select,button{width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #40516a;background:#0c1829;color:white;font-size:16px}
+button{background:#3677ed;border:0;font-weight:bold}
+label{display:block;margin-top:10px;color:#b7c8de}
+.green{color:#65e6a5}
+.red{color:#ff8e91}
+.tag{background:#273b5b;padding:5px 9px;border-radius:15px;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:9px 5px;text-align:left;border-bottom:1px solid #30435d}
+.scroll{overflow-x:auto}
+.notice{background:#332c1c;color:#ffe2a2;padding:12px;border-radius:10px;font-size:13px}
+.stat{background:#0c1829;padding:12px;border-radius:10px;margin:10px 0}
+.stat strong{font-size:23px}
+</style>
+</head>
+<body>
+<main>
+<span class="tag">SCANNER AUTOMATICO</span>
+<h1>🔎 Surebet Scanner</h1>
+<p>Arbitraggi rilevati dall'ultima scansione disponibile.</p>
+<div class="notice">
+⚠️ Quote non garantite in tempo reale. Verifica bookmaker, commissioni, disponibilità e regole dei mercati prima di qualsiasi puntata.
+</div>
+
+<section class="panel">
+<h2>Opportunità rilevate</h2>
+<label>Mercato</label>
+<select id="market">
+<option value="all">Tutti</option>
+<option value="1X2">1X2</option>
+<option value="GG/NG">Goal / No Goal</option>
+<option value="OU">Over / Under</option>
+</select>
+<label>Budget totale (€)</label>
+<input id="budget" type="number" value="200" min="1">
+<label>Profitto teorico minimo (%)</label>
+<input id="minimum" type="number" value="1" min="0" step="0.1">
+<button id="refresh">Aggiorna risultati</button>
+<p id="status">Caricamento...</p>
+<div id="results"></div>
+</section>
+
+<section class="panel">
+<h2>Calcolatore manuale</h2>
+<label>Mercato</label>
+<select id="manualMarket">
+<option value="2">Goal / No Goal</option>
+<option value="ou">Over / Under 2.5</option>
+<option value="3">1X2</option>
+</select>
+<div id="manualFields"></div>
+<button id="calculate">Calcola</button>
+<div id="manualResult"></div>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const euro=n=>new Intl.NumberFormat('it-IT',{
+style:'currency',currency:'EUR'
+}).format(n);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({
+'&':'&amp;','<':'&lt;','>':'&gt;',
+'"':'&quot;',"'":'&#39;'
+}[c]));
+let data=[];
+
+function evaluate(outcomes,budget){
+if(!Number.isFinite(budget)||budget<=0||
+outcomes.length<2||
+outcomes.some(o=>!Number.isFinite(o[2])||o[2]<=1))
+return null;
+const sum=outcomes.reduce((a,o)=>a+1/o[2],0);
+const payout=budget/sum;
+return {
+sum,payout,profit:payout-budget,
+percent:(1/sum-1)*100,
+stakes:outcomes.map(o=>budget/o[2]/sum)
+};
+}
+
+function normalize(item){
+const outcomes=Object.entries(item.outcomes||{})
+.map(([name,v])=>[
+name,String(v.bookmaker||''),
+Number(v.price)
+]);
+return {
+event:item.match||'Partita',
+market:item.market||'',
+outcomes
+};
+}
+
+function render(item,budget){
+const r=evaluate(item.outcomes,budget);
+if(!r)return '';
+return `<div class="panel">
+<h2>${esc(item.event)}</h2>
+<span class="tag">${esc(item.market)}</span>
+<div class="stat">
+<small>Profitto teorico</small><br>
+<strong class="${r.profit>0?'green':'red'}">
+${euro(r.profit)} (${r.percent.toFixed(2)}%)
+</strong>
+</div>
+<div class="scroll"><table>
+<thead><tr>
+<th>Esito</th><th>Bookmaker</th>
+<th>Quota</th><th>Puntata</th>
+</tr></thead><tbody>
+${item.outcomes.map((o,i)=>`<tr>
+<td>${esc(o[0])}</td>
+<td>${esc(o[1])}</td>
+<td>${o[2].toFixed(2)}</td>
+<td>${euro(r.stakes[i])}</td>
+</tr>`).join('')}
+</tbody></table></div>
+<p>Ritorno teorico: ${euro(r.payout)}</p>
+<small>Prima di commissioni, limiti e arrotondamenti.</small>
+</div>`;
+}
+
+function draw(){
+const budget=Number($('budget').value);
+const min=Number($('minimum').value);
+const market=$('market').value;
+const filtered=data.map(normalize).filter(x=>{
+const r=evaluate(x.outcomes,budget);
+const m=x.market.toUpperCase();
+const match=market==='all'||m===market||
+(market==='OU'&&(m.includes('OVER')||
+m.includes('UNDER')||m.startsWith('OU')));
+return r&&r.percent>=min&&match;
+}).sort((a,b)=>
+evaluate(b.outcomes,budget).percent-
+evaluate(a.outcomes,budget).percent);
+$('results').innerHTML=filtered.length?
+filtered.map(x=>render(x,budget)).join(''):
+'<p>Nessun arbitraggio corrisponde ai filtri.</p>';
+}
+
+async function load(){
+$('status').textContent='Aggiornamento in corso...';
+try{
+const response=await fetch('./surebets.json?t='+Date.now(),{
+cache:'no-store'
+});
+if(!response.ok)throw Error('HTTP '+response.status);
+const json=await response.json();
+if(!Array.isArray(json.surebets))
+throw Error('Formato dati non valido');
+data=json.surebets;
+const date=json.updated_at?
+new Date(json.updated_at):null;
+$('status').textContent=
+'Ultima scansione: '+
+(date&&!isNaN(date)?
+date.toLocaleString('it-IT'):'non disponibile')+
+' · Opportunità nel file: '+data.length;
+draw();
+}catch(e){
+$('status').textContent='Errore caricamento: '+e.message;
+$('results').innerHTML=
+'<p class="red">Controlla che surebets.json sia pubblicato nella cartella principale del repository.</p>';
+}
+}
+
+function fields(){
+const m=$('manualMarket').value;
+const names=m==='3'?['1','X','2']:
+m==='ou'?['Over 2.5','Under 2.5']:
+['Goal','No Goal'];
+$('manualFields').innerHTML=names.map((n,i)=>`
+<label>${n} — Bookmaker</label>
+<input id="bk${i}" value="Bookmaker ${i+1}">
+<label>${n} — Quota</label>
+<input id="od${i}" type="number" step="0.01"
+min="1.01" placeholder="2.10">`).join('');
+$('manualResult').innerHTML='';
+}
+
+function calculate(){
+const m=$('manualMarket').value;
+const names=m==='3'?['1','X','2']:
+m==='ou'?['Over 2.5','Under 2.5']:
+['Goal','No Goal'];
+const outcomes=names.map((n,i)=>[
+n,$('bk'+i).value,Number($('od'+i).value)
+]);
+const item={event:'Confronto manuale',
+market:m==='3'?'1X2':m==='ou'?'OU2.5':'GG/NG',
+outcomes};
+$('manualResult').innerHTML=
+render(item,Number($('budget').value))||
+'<p class="red">Inserisci quote valide e budget positivo.</p>';
+}
+
+$('refresh').addEventListener('click',load);
+$('market').addEventListener('change',draw);
+$('budget').addEventListener('input',draw);
+$('minimum').addEventListener('input',draw);
+$('manualMarket').addEventListener('change',fields);
+$('calculate').addEventListener('click',calculate);
+fields();
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>
