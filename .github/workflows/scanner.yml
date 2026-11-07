@@ -23,10 +23,12 @@ jobs:
       - name: Installa dipendenze
         run: pip install requests
 
+      
       - name: Recupera quote
         env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODSS_API_KEY: ${{ secrets.ODSS_API_KEY }}
         run: python Scanner.py
+
 
       - name: Salva risultati
         run: |
