@@ -52,7 +52,7 @@ for sport in SPORTS:
             if len(best) != expected:
                 continue
             implied = sum(1 / item["price"] for item in best.values())
-            if implied < 1:
+            if implied <= 1 / 1.01:
                 results.append({
                     "match": match["home_team"] + " - " + match["away_team"],
                     "market": label,
