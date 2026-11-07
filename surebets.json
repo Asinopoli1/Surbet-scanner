@@ -1,47 +1,22 @@
 {
-  "updated_at": "2026-11-07T00:39:53.014720+00:00",
+  "updated_at": "2026-11-07T07:24:49.512076+00:00",
   "surebets": [
     {
-      "match": "Arsenal - Hull City",
-      "market": "1X2",
-      "implied": 98.792,
-      "profit_percent": 1.222,
+      "match": "Torino - Lecce",
+      "market": "Over/Under 2.5",
+      "implied": 98.771,
+      "profit_percent": 1.244,
       "outcomes": {
-        "Arsenal": {
-          "price": 1.2,
+        "Over": {
+          "price": 2.01,
           "bookmaker": "1xBet"
         },
-        "Hull City": {
-          "price": 23.0,
-          "bookmaker": "Betfair"
-        },
-        "Draw": {
-          "price": 9.0,
-          "bookmaker": "Betfair"
+        "Under": {
+          "price": 2.04,
+          "bookmaker": "Matchbook"
         }
       },
-      "commence_time": "2026-11-07T15:00:00Z"
-    },
-    {
-      "match": "Manchester United - Aston Villa",
-      "market": "1X2",
-      "implied": 89.408,
-      "profit_percent": 11.846,
-      "outcomes": {
-        "Aston Villa": {
-          "price": 4.6,
-          "bookmaker": "BetAnything"
-        },
-        "Manchester United": {
-          "price": 2.28,
-          "bookmaker": "Unibet (NL)"
-        },
-        "Draw": {
-          "price": 4.2,
-          "bookmaker": "BetAnything"
-        }
-      },
-      "commence_time": "2026-11-08T16:30:00Z"
+      "commence_time": "2026-11-07T14:00:00Z"
     },
     {
       "match": "Coventry City - Crystal Palace",
@@ -65,21 +40,42 @@
       "commence_time": "2026-11-21T15:00:00Z"
     },
     {
+      "match": "Espanyol - Deportivo La Coruña",
+      "market": "1X2",
+      "implied": 98.659,
+      "profit_percent": 1.36,
+      "outcomes": {
+        "Deportivo La Coruña": {
+          "price": 3.3,
+          "bookmaker": "Coolbet"
+        },
+        "Espanyol": {
+          "price": 2.54,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.45,
+          "bookmaker": "Unibet (NL)"
+        }
+      },
+      "commence_time": "2026-11-07T15:15:00Z"
+    },
+    {
       "match": "CA Osasuna - Athletic Bilbao",
       "market": "1X2",
-      "implied": 98.873,
-      "profit_percent": 1.14,
+      "implied": 98.649,
+      "profit_percent": 1.369,
       "outcomes": {
         "Athletic Bilbao": {
           "price": 2.18,
           "bookmaker": "1xBet"
         },
         "CA Osasuna": {
-          "price": 3.85,
+          "price": 4.0,
           "bookmaker": "Betfair"
         },
         "Draw": {
-          "price": 3.7,
+          "price": 3.6,
           "bookmaker": "Betfair"
         }
       },
