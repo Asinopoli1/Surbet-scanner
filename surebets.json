@@ -1,0 +1,585 @@
+{
+  "updated_at": "2026-11-07T00:29:29.566963+00:00",
+  "surebets": [
+    {
+      "match": "Cagliari - Frosinone",
+      "market": "1X2",
+      "implied": 99.999,
+      "profit_percent": 0.001,
+      "outcomes": {
+        "Cagliari": {
+          "price": 2.88,
+          "bookmaker": "Matchbook"
+        },
+        "Frosinone": {
+          "price": 2.54,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 3.86,
+          "bookmaker": "Pinnacle"
+        }
+      },
+      "commence_time": "2026-11-07T14:00:00Z"
+    },
+    {
+      "match": "Parma - Bologna",
+      "market": "1X2",
+      "implied": 99.791,
+      "profit_percent": 0.209,
+      "outcomes": {
+        "Bologna": {
+          "price": 1.91,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Parma": {
+          "price": 4.9,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 3.7,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-07T17:00:00Z"
+    },
+    {
+      "match": "AS Roma - Sassuolo",
+      "market": "1X2",
+      "implied": 99.863,
+      "profit_percent": 0.137,
+      "outcomes": {
+        "AS Roma": {
+          "price": 1.33,
+          "bookmaker": "GTbets"
+        },
+        "Sassuolo": {
+          "price": 10.5,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 6.6,
+          "bookmaker": "Matchbook"
+        }
+      },
+      "commence_time": "2026-11-07T19:45:00Z"
+    },
+    {
+      "match": "Napoli - Lazio",
+      "market": "1X2",
+      "implied": 99.728,
+      "profit_percent": 0.272,
+      "outcomes": {
+        "Lazio": {
+          "price": 3.15,
+          "bookmaker": "1xBet"
+        },
+        "Napoli": {
+          "price": 2.4,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 3.8,
+          "bookmaker": "Unibet (SE)"
+        }
+      },
+      "commence_time": "2026-11-08T11:30:00Z"
+    },
+    {
+      "match": "Genoa - AC Milan",
+      "market": "1X2",
+      "implied": 99.72,
+      "profit_percent": 0.281,
+      "outcomes": {
+        "AC Milan": {
+          "price": 1.89,
+          "bookmaker": "Matchbook"
+        },
+        "Genoa": {
+          "price": 5.0,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.73,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T14:00:00Z"
+    },
+    {
+      "match": "Monza - Atalanta BC",
+      "market": "1X2",
+      "implied": 99.505,
+      "profit_percent": 0.498,
+      "outcomes": {
+        "Atalanta BC": {
+          "price": 2.12,
+          "bookmaker": "Codere (IT)"
+        },
+        "Monza": {
+          "price": 3.65,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 4.01,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T14:00:00Z"
+    },
+    {
+      "match": "Inter Milan - Como",
+      "market": "1X2",
+      "implied": 99.593,
+      "profit_percent": 0.409,
+      "outcomes": {
+        "Como": {
+          "price": 3.95,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Inter Milan": {
+          "price": 1.96,
+          "bookmaker": "1xBet"
+        },
+        "Draw": {
+          "price": 4.3,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-08T17:00:00Z"
+    },
+    {
+      "match": "Fiorentina - Juventus",
+      "market": "1X2",
+      "implied": 99.075,
+      "profit_percent": 0.933,
+      "outcomes": {
+        "Fiorentina": {
+          "price": 3.75,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Juventus": {
+          "price": 2.2,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.71,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T19:45:00Z"
+    },
+    {
+      "match": "Torino - Lecce",
+      "market": "Over/Under 2.5",
+      "implied": 99.256,
+      "profit_percent": 0.749,
+      "outcomes": {
+        "Over": {
+          "price": 2.01,
+          "bookmaker": "1xBet"
+        },
+        "Under": {
+          "price": 2.02,
+          "bookmaker": "Matchbook"
+        }
+      },
+      "commence_time": "2026-11-07T14:00:00Z"
+    },
+    {
+      "match": "Parma - Bologna",
+      "market": "Over/Under 2.5",
+      "implied": 99.716,
+      "profit_percent": 0.285,
+      "outcomes": {
+        "Over": {
+          "price": 2.19,
+          "bookmaker": "1xBet"
+        },
+        "Under": {
+          "price": 1.85,
+          "bookmaker": "Matchbook"
+        }
+      },
+      "commence_time": "2026-11-07T17:00:00Z"
+    },
+    {
+      "match": "Leeds United - Tottenham Hotspur",
+      "market": "1X2",
+      "implied": 99.108,
+      "profit_percent": 0.9,
+      "outcomes": {
+        "Leeds United": {
+          "price": 2.96,
+          "bookmaker": "Matchbook"
+        },
+        "Tottenham Hotspur": {
+          "price": 2.68,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 3.57,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-07T12:30:00Z"
+    },
+    {
+      "match": "Arsenal - Hull City",
+      "market": "1X2",
+      "implied": 98.792,
+      "profit_percent": 1.222,
+      "outcomes": {
+        "Arsenal": {
+          "price": 1.2,
+          "bookmaker": "1xBet"
+        },
+        "Hull City": {
+          "price": 23.0,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 9.0,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-07T15:00:00Z"
+    },
+    {
+      "match": "Fulham - Newcastle United",
+      "market": "1X2",
+      "implied": 99.462,
+      "profit_percent": 0.541,
+      "outcomes": {
+        "Fulham": {
+          "price": 2.09,
+          "bookmaker": "1xBet"
+        },
+        "Newcastle United": {
+          "price": 3.85,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.9,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-07T15:00:00Z"
+    },
+    {
+      "match": "Nottingham Forest - Manchester City",
+      "market": "1X2",
+      "implied": 99.654,
+      "profit_percent": 0.347,
+      "outcomes": {
+        "Manchester City": {
+          "price": 1.78,
+          "bookmaker": "1xBet"
+        },
+        "Nottingham Forest": {
+          "price": 5.0,
+          "bookmaker": "Matchbook"
+        },
+        "Draw": {
+          "price": 4.26,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-07T17:30:00Z"
+    },
+    {
+      "match": "Ipswich Town - Bournemouth",
+      "market": "1X2",
+      "implied": 99.567,
+      "profit_percent": 0.435,
+      "outcomes": {
+        "Bournemouth": {
+          "price": 1.98,
+          "bookmaker": "Betfair"
+        },
+        "Ipswich Town": {
+          "price": 4.2,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.96,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T14:00:00Z"
+    },
+    {
+      "match": "Brighton and Hove Albion - Brentford",
+      "market": "1X2",
+      "implied": 99.587,
+      "profit_percent": 0.415,
+      "outcomes": {
+        "Brentford": {
+          "price": 4.1,
+          "bookmaker": "Betfair"
+        },
+        "Brighton and Hove Albion": {
+          "price": 1.98,
+          "bookmaker": "1xBet"
+        },
+        "Draw": {
+          "price": 4.05,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T14:00:00Z"
+    },
+    {
+      "match": "Sunderland - Chelsea",
+      "market": "1X2",
+      "implied": 99.255,
+      "profit_percent": 0.751,
+      "outcomes": {
+        "Chelsea": {
+          "price": 2.08,
+          "bookmaker": "Betfair"
+        },
+        "Sunderland": {
+          "price": 4.0,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Draw": {
+          "price": 3.82,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-08T14:00:00Z"
+    },
+    {
+      "match": "Manchester United - Aston Villa",
+      "market": "1X2",
+      "implied": 89.408,
+      "profit_percent": 11.846,
+      "outcomes": {
+        "Aston Villa": {
+          "price": 4.6,
+          "bookmaker": "BetAnything"
+        },
+        "Manchester United": {
+          "price": 2.28,
+          "bookmaker": "Unibet (NL)"
+        },
+        "Draw": {
+          "price": 4.2,
+          "bookmaker": "BetAnything"
+        }
+      },
+      "commence_time": "2026-11-08T16:30:00Z"
+    },
+    {
+      "match": "Manchester City - Fulham",
+      "market": "1X2",
+      "implied": 99.658,
+      "profit_percent": 0.344,
+      "outcomes": {
+        "Fulham": {
+          "price": 7.19,
+          "bookmaker": "1xBet"
+        },
+        "Manchester City": {
+          "price": 1.48,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Draw": {
+          "price": 5.5,
+          "bookmaker": "Tipico"
+        }
+      },
+      "commence_time": "2026-11-21T12:30:00Z"
+    },
+    {
+      "match": "Coventry City - Crystal Palace",
+      "market": "1X2",
+      "implied": 98.851,
+      "profit_percent": 1.162,
+      "outcomes": {
+        "Coventry City": {
+          "price": 2.46,
+          "bookmaker": "Betsson"
+        },
+        "Crystal Palace": {
+          "price": 3.15,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Draw": {
+          "price": 3.78,
+          "bookmaker": "1xBet"
+        }
+      },
+      "commence_time": "2026-11-21T15:00:00Z"
+    },
+    {
+      "match": "Espanyol - Deportivo La Coruña",
+      "market": "1X2",
+      "implied": 99.289,
+      "profit_percent": 0.717,
+      "outcomes": {
+        "Deportivo La Coruña": {
+          "price": 3.3,
+          "bookmaker": "Coolbet"
+        },
+        "Espanyol": {
+          "price": 2.5,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.45,
+          "bookmaker": "Unibet (NL)"
+        }
+      },
+      "commence_time": "2026-11-07T15:15:00Z"
+    },
+    {
+      "match": "CA Osasuna - Athletic Bilbao",
+      "market": "1X2",
+      "implied": 98.873,
+      "profit_percent": 1.14,
+      "outcomes": {
+        "Athletic Bilbao": {
+          "price": 2.18,
+          "bookmaker": "1xBet"
+        },
+        "CA Osasuna": {
+          "price": 3.85,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.7,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-07T17:30:00Z"
+    },
+    {
+      "match": "Valencia - Real Madrid",
+      "market": "1X2",
+      "implied": 99.805,
+      "profit_percent": 0.195,
+      "outcomes": {
+        "Real Madrid": {
+          "price": 1.29,
+          "bookmaker": "1xBet"
+        },
+        "Valencia": {
+          "price": 12.5,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 7.0,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-07T20:00:00Z"
+    },
+    {
+      "match": "Elche CF - Real Betis",
+      "market": "1X2",
+      "implied": 99.126,
+      "profit_percent": 0.881,
+      "outcomes": {
+        "Elche CF": {
+          "price": 3.65,
+          "bookmaker": "Betfair"
+        },
+        "Real Betis": {
+          "price": 2.14,
+          "bookmaker": "Unibet (SE)"
+        },
+        "Draw": {
+          "price": 4.0,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-08T13:00:00Z"
+    },
+    {
+      "match": "Celta Vigo - Levante",
+      "market": "1X2",
+      "implied": 99.915,
+      "profit_percent": 0.085,
+      "outcomes": {
+        "Celta Vigo": {
+          "price": 1.94,
+          "bookmaker": "1xBet"
+        },
+        "Levante": {
+          "price": 4.4,
+          "bookmaker": "Betfair"
+        },
+        "Draw": {
+          "price": 3.9,
+          "bookmaker": "Unibet (SE)"
+        }
+      },
+      "commence_time": "2026-11-08T17:30:00Z"
+    },
+    {
+      "match": "Villarreal - Getafe",
+      "market": "1X2",
+      "implied": 99.318,
+      "profit_percent": 0.686,
+      "outcomes": {
+        "Getafe": {
+          "price": 8.4,
+          "bookmaker": "Betfair"
+        },
+        "Villarreal": {
+          "price": 1.5,
+          "bookmaker": "1xBet"
+        },
+        "Draw": {
+          "price": 4.82,
+          "bookmaker": "Pinnacle"
+        }
+      },
+      "commence_time": "2026-11-08T17:30:00Z"
+    },
+    {
+      "match": "Atlético Madrid - Barcelona",
+      "market": "1X2",
+      "implied": 98.761,
+      "profit_percent": 1.255,
+      "outcomes": {
+        "Atlético Madrid": {
+          "price": 4.1,
+          "bookmaker": "Unibet (NL)"
+        },
+        "Barcelona": {
+          "price": 1.9,
+          "bookmaker": "1xBet"
+        },
+        "Draw": {
+          "price": 4.6,
+          "bookmaker": "Betfair"
+        }
+      },
+      "commence_time": "2026-11-08T20:00:00Z"
+    },
+    {
+      "match": "Real Madrid - Celta Vigo",
+      "market": "1X2",
+      "implied": 99.69,
+      "profit_percent": 0.311,
+      "outcomes": {
+        "Celta Vigo": {
+          "price": 14.6,
+          "bookmaker": "1xBet"
+        },
+        "Real Madrid": {
+          "price": 1.24,
+          "bookmaker": "1xBet"
+        },
+        "Draw": {
+          "price": 8.2,
+          "bookmaker": "Tipico"
+        }
+      },
+      "commence_time": "2026-11-21T20:00:00Z"
+    }
+  ]
+}
